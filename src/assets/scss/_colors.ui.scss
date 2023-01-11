@@ -1,0 +1,160 @@
+// UI Colors
+$bg: var(--dark-800) !default;
+$text: var(--dark-600) !default;
+$text-d: var(--dark-700) !default;
+$title: $text-d !default;
+$mute: var(--dark-400) !default;
+$mute-l: var(--dark-300) !default;
+$mute-xl: var(--dark-200) !default;
+
+$link: var(--primary-500) !default;
+$link-hover: var(--primary-600) !default;
+$link-active: var(--primary-600) !default;
+
+$nav: var(--text) !default;
+$nav-hover: var(--primary-600) !default;
+$nav-active: var(--primary-600) !default;
+
+$shadow: rgba(var(--dark-rgb), 0.15) !default;
+
+$ui-color-vars: (
+  bg: $bg,
+  text: $text,
+  text-d: $text-d,
+  title: $title,
+  mute: $mute,
+  mute-l: $mute-l,
+  mute-xl: $mute-xl,
+  link: $link,
+  link-hover: $link-hover,
+  link-active: $link-active,
+  nav: $nav,
+  nav-hover: $nav-hover,
+  nav-active: $nav-active,
+  shadow: $shadow,
+) !default;
+
+// Card
+$card-bg: #fff !default;
+$card-fg: var(--text) !default;
+$card-bd: transparent;
+$card-shad: $shadow !default;
+
+$card-color-vars: (
+  bg: $card-bg,
+  bd: $card-bd,
+  shad: $card-shad
+) !default;
+
+// Modal
+$modal-bg: #fff !default;
+$modal-fg: var(--text) !default;
+$modal-bd: transparent;
+$modal-shad: $shadow !default;
+
+$modal-color-vars: (
+  bg: $modal-bg,
+  bd: $modal-bd,
+  shad: $modal-shad
+) !default;
+
+// Alert
+$alert-variants: (
+  default:(
+    fg: var(--dark-500),
+    bg: var(--dark-50),
+    bc: transparent,
+  ),
+  primary:(
+    fg: var(--primary-500),
+    bg: var(--primary-200),
+    bc: transparent,
+  ),
+  danger:(
+    fg: var(--danger-500),
+    bg: var(--danger-200),
+    bc: transparent,
+  ),
+  success:(
+    fg: var(--success-500),
+    bg: var(--success-200),
+    bc: transparent,
+  ),
+  warning:(
+    fg: var(--warning-500),
+    bg: var(--warning-200),
+    bc: transparent,
+  ),
+  info:(
+    fg: var(--info-500),
+    bg: var(--info-200),
+    bc: transparent,
+  ),
+) !default;
+
+// Button
+$btn-variants:(
+  default: makeBtnVariant('--dark'),
+  primary: makeBtnVariant('--primary'),
+  success: makeBtnVariant('--success'),
+  info: makeBtnVariant('--info'),
+  warning: makeBtnVariant('--warning'),
+  danger: makeBtnVariant('--danger'),
+  input: (
+    idle: (
+      fg: var(--dark-500),
+      bg: var(--dark-50),
+      bc: var(--dark-300),
+      hex: var(--dark-500),
+      opc-10: 'rgba(var(--dark-rgb), 0.1)',
+      opc-20: 'rgba(var(--dark-rgb), 0.2)',
+      opc-30: 'rgba(var(--dark-rgb), 0.3)',
+    ),
+    hover:(
+      fg: var(--dark-500),
+      bg: var(--dark-50),
+      bc: var(--dark-400),
+    ),
+    focus: (
+      fg: var(--dark-500),
+      bg: var(--dark-50),
+      bc: var(--primary-400),
+    ),
+    active: (
+      fg: var(--dark-500),
+      bg: var(--dark-50),
+      bc: var(--primary-500),
+    ),
+    disabled: (
+      fg: var(--dark-300),
+      bg: var(--dark-100),
+    )
+  )
+) !default;
+
+// Input
+$inp-variants: (
+  input: (
+    idle: (
+      fg: var(--dark-500),
+      bg: var(--dark-50),
+      bc: var(--dark-300),
+      lc: var(--text),
+      hint: var(--dark-400)
+    ),
+    error: (
+      bc: var(--danger),
+      bg: var(--danger-50),
+      lc: var(--danger)
+    ),
+    focus: (
+      bc: var(--primary-500),
+      bg: none
+    ),
+    disabled: (
+      fg: var(--dark-300),
+      bg: var(--dark-200),
+      lc: var(--dark-300)
+    )
+  )
+) !default;

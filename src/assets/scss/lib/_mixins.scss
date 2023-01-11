@@ -1,0 +1,213 @@
+@use "sass:math";
+$prefixes: ('-webkit-','-moz-', '-o-', '');
+
+@mixin vendorize($property, $value) {
+	@each $prefix in $prefixes {
+		#{$prefix}#{$property}: #{$value};
+	}
+}
+
+@mixin arrow($dir, $w, $h, $color) {
+	display:block;
+	width: 0;
+	height:0;
+	background: none;
+	border: none;
+
+	@if $dir == 'up' {
+		border-bottom: $h solid $color;
+		border-right: ($w / 2) solid transparent;
+		border-left: ($w / 2) solid transparent;
+
+	}
+
+	@else if $dir == 'down' {
+		border-top: $h solid $color;
+		border-right: ($w / 2) solid transparent;
+		border-left: ($w / 2) solid transparent;
+	}
+
+	@else if $dir == 'right' {
+		border-left: $w solid $color;
+		border-top: ($h / 2) solid transparent;
+		border-bottom: ($h / 2) solid transparent;
+	}
+
+	@else if $dir == 'left' {
+		border-right: $w solid $color;
+		border-top: ($h / 2) solid transparent;
+		border-bottom: ($h / 2) solid transparent;
+	}
+
+	@else if $dir == 'top-right' {
+		border-right: $w solid $color;
+		border-bottom: $h solid transparent;
+	}
+
+	@else if $dir == 'top-left' {
+		border-left: $w solid $color;
+		border-bottom: $h solid transparent;
+	}
+
+	@else if $dir == 'bottom-right' {
+		border-right: $w solid $color;
+		border-top: $h solid transparent;
+	}
+
+	@else if $dir == 'bottom-left' {
+		border-left: $w solid $color;
+		border-top: $h solid transparent;
+	}
+}
+
+@mixin spaced(){
+  $g: math.div(30px, 2);
+
+  .row.spaced {
+      margin-top: - $g;
+      > * {
+          padding: $g;
+      }
+  }
+}
+
+@mixin gutter($size, $sfx: '') {
+  $g: math.div($size, 2) * 1px;
+
+  .gut-#{$size}#{$sfx}.row,
+  .gutx-#{$size}#{$sfx}.row {
+    margin-right: - $g;
+    margin-left: - $g;
+
+    > * {
+      padding-left: $g;
+      padding-right: $g;
+    }
+  }
+
+  .gut-#{$size}#{$sfx}.row,
+  .guty-#{$size}#{$sfx}.row {
+    padding-top: $g;
+    padding-bottom: $g;
+
+    > * {
+      padding-top: $g;
+      padding-bottom: $g;
+    }
+  }
+
+  .gutter-#{$size}#{$sfx}.row {
+    margin-right: - $g;
+    margin-left: - $g;
+
+    > * {
+      padding-left: $g;
+      padding-right: $g;
+    }
+
+    &.spaced > * {
+      padding: $g;
+    }
+
+    &.spaced {
+        margin-top: - $g;
+    }
+  }
+}
+
+@mixin placeholder-color($sel) {
+  #{$sel} {
+    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+      @content;
+    }
+    &::-moz-placeholder { /* Firefox 19+ */
+      @content;
+    }
+    &:-ms-input-placeholder { /* IE 10+ */
+      @content;
+    }
+    &:-moz-placeholder { /* Firefox 18- */
+      @content;
+    }
+    &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+      @content;
+    }
+  }
+}
+
+@mixin circle($size) {
+  height: $size;
+  width: $size;
+  border-radius: 50%;
+}
+
+@mixin square($size) {
+  height: $size;
+  width: $size;
+}
+
+@mixin bp-up($bp) {
+  $max: map-get($grid-bps, $bp);
+
+  @media (min-width: $max) {
+    @content;
+  }
+}
+
+@mixin bp-down($bp) {
+  $max: map-get($grid-bps, $bp) - 1;
+
+  @media (max-width: $max) {
+    @content;
+  }
+}
+
+@mixin bp($bp) {
+  $i: index($bp-keys, $bp);
+  $next: nth($bp-keys, $i + 1);
+
+  $min: map-get($grid-bps, $bp);
+  $max: map-get($grid-bps, $next) - 1;
+
+  @media (min-width: $min) and (max-width: $max) {
+    @content;
+  }
+}
+
+@mixin center-x() {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin center-y() {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin aspect($w, $h) {
+  $p: $h / $w * 100%;
+  width: 100%;
+  padding-top: $p;
+}
+
+@mixin colw($w) {
+  flex: 0 0 $w;
+  max-width: $w;
+}
+
+@mixin grid-colw($index, $max) {
+  $w: decimal-round(math.div($index, $max) * 100, 3) * 1%;
+  flex: 0 0 $w;
+  max-width: $w;
+}
+
+@mixin make-cols($map, $sfx) {
+  @each $key, $val in $map {
+    @each $k in $key {
+      .col#{$sfx}-#{$k} {
+        flex: 0 0 $val;
+        max-width: $val;
+      }
+    }
+  }
+}

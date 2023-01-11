@@ -1,0 +1,171 @@
+$ut-fonts: (
+  mono: $font-mono,
+  sans: $font-sans,
+  serif: $font-serif
+) !default;
+
+$ut-font-sizes: (
+  xs: var(--fs-xs),
+  sm: var(--fs-sm),
+  md: var(--fs-md),
+  lg: var(--fs-lg),
+  xl: var(--fs-xl),
+  2xl: var(--fs-2xl),
+) !default;
+
+$ut-font-weights: (
+  n: normal,
+  b: bold,
+  inh: inherit,
+  mb: 500,
+  l: 300,
+  xl: 200
+) !default;
+
+$ut-margins: (
+  auto: auto,
+  0: 0,
+  xs: var(--space-xs),
+  sm: var(--space-sm),
+  md: var(--space-md),
+  lg: var(--space-lg),
+  xl: var(--space-xl),
+) !default;
+
+$ut-pads: (
+  auto: auto,
+  0: 0,
+  xs: var(--space-xs),
+  sm: var(--space-sm),
+  md: var(--space-md),
+  lg: var(--space-lg),
+  xl: var(--space-xl),
+) !default;
+
+$ut-gaps: (
+  auto: auto,
+  0: 0,
+  xs: var(--space-xs),
+  sm: var(--space-sm),
+  md: var(--space-md),
+  lg: var(--space-lg),
+  xl: var(--space-xl),
+) !default;
+
+$ut-rad: (
+  0: 0,
+  circ: 50%,
+  xs: var(--rad-xs),
+  md: var(--rad-md),
+  lg: var(--rad-lg),
+) !default;
+
+$ut-widths: (
+  100pc: 100%,
+  50pc: 50%,
+  25pc: 25%,
+  500: 500px,
+  700: 700px,
+  900: 900px,
+) !default;
+
+$ut-pos:(
+  stat: static,
+  sticky: sticky,
+  rel: relative,
+  abs: absolute,
+  fixed: fixed
+) !default;
+
+$ut-display:(
+  none: none,
+  block: block,
+  iblock: inline-block,
+  flex: flex,
+  iflex: inline-flex,
+  grid: grid
+) !default;
+
+$ut-flex:(
+  none: none,
+  1: 1,
+  auto: 1 1 auto,
+  initial: 0 1 auto,
+) !default;
+
+$ut-flex-just:(
+  center: center,
+  start: flex-start,
+  end: flex-end,
+  btw: space-between,
+  arn: space-around,
+  even: space-evenly
+) !default;
+
+$ut-flex-items:(
+  center: center,
+  start: flex-start,
+  end: flex-end,
+  bline: baseline,
+  str: stretch,
+) !default;
+
+$ut-flex-dir:(
+  row: row,
+  row-rev: row-reverse,
+  col: column,
+  col-rev: column-reverse
+) !default;
+
+$ut-flex-wrap:(
+  wrap: wrap,
+  wrap-rev: wrap-reverse,
+  none: nowrap
+) !default;
+
+$ut-text-deco:(
+  none: none,
+  uline: underline,
+  oline: overline,
+  lth: line-through,
+) !default;
+
+$ut-text-transform:(
+  none: none,
+  upper: uppercase,
+  lower: lowercase,
+  cap: capitalize,
+) !default;
+
+$ut-text-align:(
+  center: center,
+  left: left,
+  right: right,
+  just: justify,
+  start: start,
+  end: end
+) !default;
+
+$ut-list-types:(
+  circle: circle,
+  disc: disc,
+  square: square,
+  decimal: decimal,
+  none: none
+) !default;
+
+$ut-shadows: (
+  none: none,
+  sm: (0 1px 3px 0 var(--shadow), 0 1px 2px -1px var(--shadow)),
+  md: (0 4px 6px -1px var(--shadow), 0 2px 4px -2px var(--shadow)),
+  lg: (0 10px 15px -3px var(--shadow), 0 4px 6px -4px var(--shadow)),
+  xs: (0 20px 25px -5px var(--shadow), 0 8px 10px -6px var(--shadow)),
+) !default;
+
+$ut-opacs: (
+  100: 1,
+  70: 0.7,
+  50: 0.5,
+  30: 0.3,
+  10: 0.1
+) !default;

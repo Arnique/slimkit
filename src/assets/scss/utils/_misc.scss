@@ -1,0 +1,51 @@
+.is-busy {
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    cursor: not-allowed;
+    z-index: 10;
+    backdrop-filter: grayscale(0.8) opacity(0.8);
+    @extend %box-filler;
+  }
+}
+
+@mixin make-opacs($map) {
+  @each $key, $val in $map {
+    .opc-#{$key} {
+      opacity: $val
+    }
+  }
+}
+
+@mixin make-rad($map) {
+  @each $key, $val in $map {
+    .rad-#{$key} {
+      border-radius: $val
+    }
+
+    .rad-t-#{$key} {
+      border-top-left-radius: $val;
+      border-top-right-radius: $val;
+    }
+
+    .rad-b-#{$key} {
+      border-bottom-left-radius: $val;
+      border-bottom-right-radius: $val;
+    }
+
+    .rad-r-#{$key} {
+      border-top-right-radius: $val;
+      border-bottom-right-radius: $val;
+    }
+
+    .rad-l-#{$key} {
+      border-top-left-radius: $val;
+      border-bottom-left-radius: $val;
+    }
+  }
+}
+
+@include make-opacs($ut-opacs);
+@include make-rad($ut-rad);

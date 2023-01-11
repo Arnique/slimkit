@@ -1,0 +1,9 @@
+@mixin make-shadows($map) {
+  @each $key, $val in $map {
+    .shad-#{$key} {
+      box-shadow: $val;
+    }
+  }
+}
+
+@include make-shadows($ut-shadows);

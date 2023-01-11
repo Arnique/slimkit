@@ -1,0 +1,60 @@
+body {
+  // Grid
+  @each $key, $val in $grid-css-vars {
+    --#{'bp-' + $key}: #{$val};
+  }
+
+  // Font
+  @each $key, $val in $font-css-vars {
+    --#{'font-' + $key}: #{$val};
+  }
+
+  // Font size
+  @each $key, $val in $fs-css-vars {
+    --#{'fs-' + $key}: #{$val};
+  }
+
+  // Body
+  @each $key, $val in $body-css-vars {
+    --#{'body-' + $key}: #{$val};
+  }
+
+  // Heading
+  @each $key, $val in $hd-css-vars {
+    --#{'hd-' + $key}: #{$val};
+  }
+
+  // Spacing
+  @each $key, $val in $space-css-vars {
+    --#{'space-' + $key}: #{$val};
+  }
+
+  // Border radius
+  @each $key, $val in $rad-css-vars {
+    --rad-#{$key}: #{$val};
+  }
+
+  // Base colors
+  @each $color, $value in $base-color-vars {
+    @each $s, $sv in $value {
+      --#{$color + '-' + $s}: #{$sv};
+      @if ($s == 500) {
+        --#{$color}: #{$sv};
+        --#{$color + '-rgb'}: #{toRgbVals($sv)};
+        --#{$color + '-hsl'}: #{toHslVals($sv)};
+      }
+    }
+  }
+
+  // UI colors
+  @each $key, $val in $ui-color-vars {
+    --#{$key}: #{$val};
+  }
+}
+
+[data-skin="dark"] {
+  // UI colors
+  @each $key, $val in $dmd-ui-color-vars {
+    --#{$key}: #{$val};
+  }
+}

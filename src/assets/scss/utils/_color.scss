@@ -1,0 +1,55 @@
+@mixin make-base-colors($map) {
+  @each $color, $val in $map {
+    @each $s, $sv in $val {
+      $sel: '.bg-' + $color + '-' + $s;
+      $var: var(--#{$color}-#{$s});
+      
+      @if ($s == 500) {
+        $sel: '.bg-' + $color + ',' + $sel;
+      }
+
+      #{$sel} {
+        background-color: $var;
+      }
+
+      $sel: '.fg-' + $color + '-' + $s;
+      @if ($s == 500) {
+        $sel: '.fg-' + $color + ',' + $sel;
+      }
+
+      #{$sel} {
+        color: $var;
+      }
+
+      $sel: '.fill-' + $color + '-' + $s;
+      @if ($s == 500) {
+        $sel: '.fill-' + $color + ',' + $sel;
+      }
+
+      #{$sel} {
+        fill: $var;
+      }
+
+      $sel: '.bd-' + $color + '-' + $s;
+      @if ($s == 500) {
+        $sel: '.bd-' + $color + ',' + $sel;
+      }
+
+      #{$sel} {
+        border-color: $var;
+      }
+    }
+  }
+}
+
+.fg-white { color: #fff }
+
+.bg-tint {
+  background-color: rgba($dark, 0.1);
+
+  .sk-dark & {
+    background-color: rgba(#fff, 0.1);
+  }
+}
+
+@include make-base-colors($base-color-vars);

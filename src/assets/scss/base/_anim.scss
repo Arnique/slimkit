@@ -1,0 +1,39 @@
+@keyframes animFadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+@keyframes animFadeOut {
+  from { opacity: 1 }
+  to { opacity: 0 }
+}
+
+@keyframes animSlideInY {
+  from { transform: translateY(-100%) }
+  to {  transform: translateY(0) }
+}
+
+@keyframes animSlideOutY {
+  from { transform: translateY(0) }
+  to {  transform: translateY(-100%) }
+}
+
+@keyframes modalIn {
+  from { transform: translateY(-50px); opacity: 0 }
+  to {  transform: translateY(0); opacity: 1 }
+}
+
+@keyframes modalOut {
+  from { transform: translateY(0); opacity: 1 }
+  to {  transform: translateY(-50px); opacity: 0 }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}

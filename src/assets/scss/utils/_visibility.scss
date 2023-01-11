@@ -1,0 +1,50 @@
+[hidden], .hidden { display: none !important }
+[invisible], .invisible { visibility: hidden !important }
+
+@include bp-up(sm) {
+  .lg\:hidden, .hidden-sm {
+    display:none !important;
+  }
+}
+
+@include bp-up(md) {
+  .md\:hidden, .hidden-md {
+    display: none !important;
+  }
+}
+
+@include bp-up(lg) {
+  .lg\:hidden, .hidden-lg {
+    display: none !important;
+  }
+}
+
+@include bp-up(xl) {
+  .xl\:hidden, .hidden-xl {
+    display: none !important;
+  }
+}
+
+@include bp-down(xl) {
+  .hidden-xl-down {
+    display: none !important;
+  }
+}
+
+@include bp-down(lg) {
+  .hidden-lg-down {
+    display: none !important;
+  }
+}
+
+@include bp-down(md) {
+  .hidden-md-lg {
+    display: none !important;
+  }
+}
+
+@include bp-down(sm) {
+  .hidden-sm-down {
+    display: none !important;
+  }
+}
