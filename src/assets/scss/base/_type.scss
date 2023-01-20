@@ -1,0 +1,84 @@
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  font-weight: var(--body-fw);
+  line-height: var(--body-lh);
+  color: var(--text);
+}
+
+a:not(.sk-btn):not(.sk-nav-link):not(.sk-nav-drop-item) {
+  color: var(--link);
+
+  &:hover {
+    color: var(--link-hover);
+  }
+
+  &:active {
+    color: var(--link-active);
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--hd-font);
+  font-weight: var(--hd-fw);
+  font-size: var(--hd-fs);
+  line-height: var(--hd-lh);
+  margin-top: var(--hd-mt);
+  margin-bottom: var(--hd-mb);
+  color: var(--title);
+}
+
+@each $name, $map in $hd-sizes {
+  #{$name} {
+    @each $var, $val in $map {
+      --hd-#{$var}: #{$val};
+    }
+  }
+}
+
+hr {
+  margin: var(--space-tpg) 0;
+  border: none;
+  height: 1px;
+  display: block;
+  background: var(--mute-l);
+}
+
+p, ul, ol, blockquote {
+  margin-bottom: var(--space-tpg);
+}
+
+ul, ol {
+  margin-left: var(--space-tpg);
+}
+
+small {
+  font-size: var(--fs-sm)
+}
+
+strong, b {
+  font-weight: bold;
+}
+
+pre {
+  font-size: 0.9em;
+  background: var(--dark-500);
+  color: #fff;
+  font-family: $font-mono;
+  border-radius: var(--rad-md);
+  padding: var(--space-tpg);
+}
+
+@each $key, $val in $ui-color-vars {
+  .fg-#{$key} {
+    color: var(--#{$key})
+  }
+
+  .bg-#{$key} {
+    background-color: var(--#{$key})
+  }
+
+  .fill-#{$key} {
+    fill: var(--#{$key})
+  }
+}

@@ -1,0 +1,119 @@
+// UI Colors
+$dmd-bg: var(--dark-800) !default;
+$dmd-text: rgba(#fff, 0.8) !default;
+$dmd-text-d: #fff !default;
+$dmd-mute: rgba(#fff, 0.4) !default;
+$dmd-mute-l: rgba(#fff, 0.3) !default;
+$dmd-mute-xl: rgba(#fff, 0.2) !default;
+$dmd-title: $dmd-text-d !default;
+
+$dmd-link: var(--primary-500) !default;
+$dmd-link-hover: var(--primary-600) !default;
+$dmd-link-active: var(--primary-600) !default;
+
+$dmd-nav: var(--primary-500) !default;
+$dmd-nav-hover: var(--primary-600) !default;
+$dmd-nav-active: var(--primary-600) !default;
+
+$dmd-shadow: rgba(0,0,0, 0.15) !default;
+
+$dmd-ui-color-vars: (
+  bg: $dmd-bg,
+  text: $dmd-text,
+  text-d: $dmd-text-d,
+  mute: $dmd-mute,
+  mute-l: $dmd-mute-l,
+  mute-xl: $dmd-mute-xl,
+  title: $dmd-title,
+  link: $dmd-link,
+  link-hover: $dmd-link-hover,
+  link-active: $dmd-link-active,
+  nav: $dmd-nav,
+  nav-hover: $dmd-nav-hover,
+  nav-active: $dmd-nav-active,
+  shadow: $dmd-shadow
+) !default;
+
+$dmd-card-color-vars: (
+  bg: var(--dark-700),
+  bd: transparent
+) !default;
+
+// Card
+$dmd-card-bg: var(--dark-700) !default;
+$dmd-card-bd: transparent;
+$dmd-card-shad: $dmd-shadow !default;
+
+$dmd-card-color-vars: (
+  bg: $dmd-card-bg,
+  bd: $dmd-card-bd,
+  shad: $dmd-card-shad
+) !default;
+
+// Modal
+$dmd-modal-bg: var(--dark-700) !default;
+$dmd-modal-bd: transparent;
+$dmd-modal-shad: $dmd-shadow !default;
+
+$dmd-modal-color-vars: (
+  bg: $dmd-modal-bg,
+  bd: $dmd-modal-bd,
+  shad: $dmd-modal-shad
+) !default;
+
+// Input
+$dmd-inp-variants: (
+  input: (
+    idle: (
+      fg: #fff,
+      bg: var(--dark-600),
+      bc: transparent,
+      lc: #fff,
+      hint: rgba(#fff, 0.5)
+    ),
+    focus: (
+      bc: var(--primary-500),
+      bg: none
+    ),
+    disabled: (
+      fg: var(--dark-300),
+      bg: var(--dark-200),
+      lc: var(--dark-300)
+    ),
+    error: (
+      bc: var(--danger),
+      bg: var(--danger-50),
+      lc: var(--danger)
+    ),
+  )
+) !default;
+
+// Button
+$dmd-btn-variants:(
+  input: (
+    idle: (
+      fg: #fff,
+      bg: var(--dark-600),
+      bc: transparent,
+    ),
+    hover:(
+      fg: #fff,
+      bg: var(--dark-500),
+      bc: transparent,
+    ),
+    focus: (
+      bc: var(--primary-500),
+      bg: none
+    ),
+    active: (
+      fg: #fff,
+      bg: var(--dark-600),
+      bc: var(--primary-500),
+    ),
+    disabled: (
+      fg: var(--dark-300),
+      bg: var(--dark-200),
+      lc: var(--dark-300)
+    )
+  )
+) !default;

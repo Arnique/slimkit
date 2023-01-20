@@ -1,0 +1,36 @@
+@import 'colors.tw';
+
+// Base colors
+$dark: $slate !default;
+$dark-plt: $slate-plt !default;
+
+$primary: $sky !default;
+$primary-plt: $sky-plt !default;
+
+$secondary: $indigo !default;
+$secondary-plt: $indigo-plt !default;
+
+$info: $cyan !default;
+$info-plt: $cyan-plt !default;
+
+$success: $green !default;
+$success-plt: $green-plt !default;
+
+$warning: $amber !default;
+$warning-plt: $amber-plt !default;
+
+$danger: $rose !default;
+$danger-plt: $rose-plt !default;
+
+// Base CSS colors
+$base-color-vars:(
+  dark: $dark-plt,
+  primary: $primary-plt,
+  secondary: $secondary-plt,
+  info: $info-plt,
+  success: $success-plt,
+  warning: $warning-plt,
+  danger: $danger-plt,
+  'white': $white-plt,
+  'black': $black-plt
+) !default;

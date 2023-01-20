@@ -1,0 +1,120 @@
+@mixin make-pos($map) {
+  @each $key, $val in $map {
+    @each $k in $key {
+      .pos-#{$k} {
+        position: $val
+      }
+    }
+  }
+}
+
+@mixin make-display($map) {
+  @each $key, $val in $map {
+    .d-#{$key} {
+      display: $val
+    }
+  }
+
+  @include bp-up(md) {
+    @each $key, $val in $map {
+      .md\:d-#{$key} {
+        display: $val
+      }
+    }
+  }
+
+  @include bp-up(lg) {
+    @each $key, $val in $map {
+      .lg\:d-#{$key} {
+        display: $val
+      }
+    }
+  }
+
+  @include bp-up(xl) {
+    @each $key, $val in $map {
+      .xl\:d-#{$key} {
+        display: $val
+      }
+    }
+  }
+}
+
+@mixin make-flex($map) {
+  @each $key, $val in $map {
+    @each $k in $key {
+      .flex-#{$k} {
+        flex: $val
+      }
+    }
+  }
+
+  @include bp-up(lg) {
+    @each $key, $val in $map {
+      @each $k in $key {
+        .md\:flex-#{$k} {
+          flex: $val
+        }
+      }
+    }
+  }
+
+  @include bp-up(xl) {
+    @each $key, $val in $map {
+      @each $k in $key {
+        .xl\:flex-#{$k} {
+          flex: $val
+        }
+      }
+    }
+  }
+
+  .flex-center-y, 
+  .flex-center {
+    display: flex;
+    align-items: center;
+  }
+
+  .flex-center-x, 
+  .flex-center {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@mixin make-flex-dir($map) {
+  @each $key, $val in $map {
+    @each $k in $key {
+      .flex-#{$k} {
+        flex-direction: $val
+      }
+    }
+  }
+}
+
+@mixin make-flex-just($map) {
+  @each $key, $val in $map {
+    @each $k in $key {
+      .flex-just-#{$k} {
+        justify-content: $val
+      }
+    }
+  }
+}
+
+@mixin make-flex-items($map) {
+  @each $key, $val in $map {
+    @each $k in $key {
+      .flex-items-#{$k} {
+        align-items: $val
+      }
+    }
+  }
+}
+
+@include make-display($ut-display);
+@include make-pos($ut-pos);
+@include make-flex($ut-flex);
+@include make-flex-dir($ut-flex-dir);
+@include make-flex-just($ut-flex-just);
+@include make-flex-items($ut-flex-items);

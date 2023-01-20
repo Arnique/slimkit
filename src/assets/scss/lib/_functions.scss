@@ -1,0 +1,112 @@
+@use "sass:math";
+@use "sass:string";
+@use "sass:color";
+
+@import 'decimal';
+
+@function to-rem($v, $base) {
+  @return decimal-round(math.div($v, $base) * 1rem, 3);
+}
+
+@function to-em($v, $base) {
+  @return decimal-round(math.div($v, $base) * 1em, 3);
+}
+
+@function map-collect($maps...) {
+  $collection: ();
+  @each $map in $maps {
+    $collection: map-merge($collection, $map);
+  }
+  @return $collection;
+}
+
+@function tint($color, $pc) {
+  @return mix(white, $color, $pc);
+}
+
+@function untint($color, $pc) {
+  @return tint($color, 100 - $pc);
+}
+
+@function to-var($var) {
+  @return var('--' + $var);
+}
+
+
+@function shade($color, $n, $plt: null) {
+  $shader: 8%;
+  $v1: 5 - math.div($n, 100);
+  $v2: math.div($n, 100) - 5;
+  
+  @if ($plt) {
+    $c: map-get($plt, $n);
+    @if ($c) { @return $c; }
+  }
+  
+  @if ($n == 500) {
+    @return $color;
+  }
+  
+  @if ($n < 500) {
+    @return lighten($color, $shader * $v1)
+  }
+  
+  @if ($n > 500) {
+    @return darken($color, $shader * $v2)
+  }
+}
+
+// idle > hover > active > focus
+@function makeBtnVariant($plt: '--primary') {
+  @return (
+    idle: (
+      fg: #fff,
+      bg: var(#{$plt}-500),
+      bc: transparent,
+      opc-10: #{'rgba(var(' + $plt + '-rgb), 0.1)'},
+      opc-20: #{'rgba(var(' + $plt + '-rgb), 0.2)'},
+      opc-30: #{'rgba(var(' + $plt + '-rgb), 0.3)'},
+      hex: var(#{$plt}-500),
+    ),
+    hover: (
+      fg: #fff,
+      bg: var(#{$plt}-600),
+      bc: transparent,
+    ),
+    active: (
+      fg: #fff,
+      bg: var(#{$plt}-700),
+      bc: transparent,
+    ),
+    focus: (
+      fg: #fff,
+      bg: var(#{$plt}-600),
+      bc: transparent,
+    ),
+    disabled: (
+      fg: rgba(#fff, 0.5),
+      bg: var(#{$plt}-300),
+      bc: transparent,
+    )
+  );
+}
+
+@function toRgb($hex) {
+  @return rgb($hex, 1);
+}
+
+@function toRgbVals($hex) {
+  @return #{color.red($hex) + ',' + color.green($hex) + ',' + color.blue($hex)}
+}
+
+@function toHslVals($hex) {
+  $h: math.floor(math.div(color.hue($hex), 1deg));
+  $s: math.floor(math.div(color.saturation($hex), 1%));
+  $l: math.floor(math.div(color.lightness($hex), 1%));
+
+  @return #{$h + ',' + $s + ',' + $l}
+}
+
+@function toRgbStr($hex) {
+  @return #{'rgb(' +  toRgbVals($hex) + ')'}
+}

@@ -1,0 +1,67 @@
+@mixin make-font-sizes($map) {
+  @each $key, $val in $map {
+    @each $k in $key {
+      .fs-#{$k} {
+        font-size: $val;
+      }
+    }
+  }
+}
+
+@mixin make-font-weights($map) {
+  @each $key, $val in $map {
+    @each $k in $key {
+      .fw-#{$k} {
+        font-weight: $val;
+      }
+    }
+  }
+}
+
+@mixin make-text-transforms($map) {
+  @each $key, $val in $map {
+    .text-#{$key} {
+      text-transform: $val;
+    }
+  }
+}
+
+@mixin make-text-aligns($map) {
+  @each $key, $val in $map {
+    .text-#{$key} {
+      text-align: $val;
+    }
+  }
+}
+
+@mixin make-text-deco($map) {
+  @each $key, $val in $map {
+    .text-deco-#{$key} {
+      text-decoration: $val;
+    }
+  }
+}
+
+@mixin make-fonts($map) {
+  @each $key, $val in $map {
+    .font-#{$key} {
+      font-family: $val;
+    }
+  }
+}
+
+@mixin make-list-types($map) {
+  @each $key, $val in $map {
+    .ul-#{$key} {
+      list-style-type: $val;
+    }
+  }
+}
+
+@include make-fonts($ut-fonts);
+@include make-font-weights($ut-font-weights);
+@include make-font-sizes($ut-font-sizes);
+@include make-text-aligns($ut-text-align);
+@include make-text-transforms($ut-text-transform);
+@include make-text-deco($ut-text-deco);
+@include make-list-types($ut-list-types);

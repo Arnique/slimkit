@@ -1,0 +1,157 @@
+@mixin make-margins($map) {
+  @each $key, $val in $map {
+    @each $k in $key {
+      .mgb-#{$k}, 
+      .mgy-#{$k} {
+        margin-bottom: $val
+      }
+
+      .mgt-#{$k},
+      .mgy-#{$k} {
+        margin-top: $val
+      }
+
+      .mgr-#{$k},
+      .mgx-#{$k} {
+        margin-right: $val
+      }
+
+      .mgl-#{$k},
+      .mgx-#{$k} {
+        margin-left: $val
+      }
+    }
+  }
+
+  @include bp-up(lg) {
+    @each $key, $val in $map {
+      @each $k in $key {
+        .lg\:mgb-#{$k}, 
+        .lg\:mgy-#{$k} {
+          margin-bottom: $val
+        }
+  
+        .lg\:mgt-#{$k},
+        .lg\:mgy-#{$k} {
+          margin-top: $val
+        }
+  
+        .lg\:mgr-#{$k},
+        .lg\:mgx-#{$k} {
+          margin-right: $val
+        }
+  
+        .lg\:mgl-#{$k},
+        .lg\:mgx-#{$k} {
+          margin-left: $val
+        }
+      }
+    }
+  }
+}
+
+@mixin make-pads($map) {
+  @each $key, $val in $map {
+    @each $k in $key {
+      .pd-#{$k}, 
+      .pdb-#{$k}, 
+      .pdy-#{$k} {
+        padding-bottom: $val
+      }
+
+      .pd-#{$k}, 
+      .pdt-#{$k},
+      .pdy-#{$k} {
+        padding-top: $val
+      }
+
+      .pd-#{$k}, 
+      .pdr-#{$k},
+      .pdx-#{$k} {
+        padding-right: $val
+      }
+
+      .pd-#{$k}, 
+      .pdl-#{$k},
+      .pdx-#{$k} {
+        padding-left: $val
+      }
+    }
+  }
+
+  @include bp-up(lg) {
+    @each $key, $val in $map {
+      @each $k in $key {
+        .lg\:pd-#{$k}, 
+        .lg\:pdb-#{$k}, 
+        .lg\:pdy-#{$k} {
+          padding-bottom: $val
+        }
+  
+        .lg\:pd-#{$k}, 
+        .lg\:pdt-#{$k},
+        .lg\:pdy-#{$k} {
+          padding-top: $val
+        }
+  
+        .lg\:pd-#{$k}, 
+        .lg\:pdr-#{$k},
+        .lg\:pdx-#{$k} {
+          padding-right: $val
+        }
+  
+        .lg\:pd-#{$k}, 
+        .lg\:pdl-#{$k},
+        .lg\:pdx-#{$k} {
+          padding-left: $val
+        }
+      }
+    }
+  }
+}
+
+@mixin make-gaps($map) {
+  @each $key, $val in $map {
+    @each $k in $key {
+      .gap-#{$k}, 
+      .gap-row-#{$k} {
+        row-gap: $val
+      }
+
+      .gap-#{$k}, 
+      .gap-col-#{$k} {
+        column-gap: $val
+      }
+    }
+  }
+
+  @include bp-up(lg) {
+    @each $key, $val in $map {
+      @each $k in $key {
+        .lg\:gap-#{$k}, 
+        .lg\:gap-row#{$k} {
+          row-gap: $val
+        }
+  
+        .lg\:gap-#{$k}, 
+        .lg\:gap-col#{$k} {
+          column-gap: $val
+        }
+      }
+    }
+  }
+}
+
+@include make-pads($ut-pads);
+@include make-gaps($ut-gaps);
+@include make-margins($ut-margins);
+
+.center-x {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.center-y {
+  top: 50%;
+  transform: translateY(-50%);
+}

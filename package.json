@@ -1,0 +1,51 @@
+{
+  "name": "slimkit",
+  "version": "1.4.6",
+  "files": [
+    "dist/*"
+  ],
+  "main": "./dist/slimkit.umd.js",
+  "module": "./dist/slimkit.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/slimkit.es.js",
+      "require": "./dist/slimkit.umd.js"
+    },
+    "./dist/style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
+    },
+    "./dist/*.scss": {
+      "import": "./dist/*.scss",
+      "require": "./dist/*.scss"
+    },
+    "./dist/scss/*": {
+      "import": "./dist/scss/*.scss",
+      "require": "./dist/scss/*.scss"
+    },
+    "./dist/scss/*.scss": {
+      "import": "./dist/scss/*.scss",
+      "require": "./dist/scss/*.scss"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "docs": "vite build -c vite.config2.js",
+    "preview": "vite preview --port 4173"
+  },
+  "dependencies": {
+    "vue": "^3.2.36"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.3.3",
+    "pug": "^3.0.2",
+    "rollup-plugin-analyzer": "^4.0.0",
+    "sass": "^1.52.2",
+    "vite": "^2.9.9",
+    "vite-plugin-copy": "^0.1.6",
+    "vite-plugin-pug": "^0.3.1",
+    "vite-plugin-static-copy": "^0.9.0",
+    "vite-svg-loader": "^3.6.0"
+  }
+}
