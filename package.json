@@ -11,6 +11,10 @@
       "import": "./dist/slimkit.es.js",
       "require": "./dist/slimkit.umd.js"
     },
+    "./style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
+    },
     "./dist/style.css": {
       "import": "./dist/style.css",
       "require": "./dist/style.css"
