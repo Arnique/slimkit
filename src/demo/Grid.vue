@@ -9,14 +9,14 @@ section
         const markup =
         `
         <!-- 12 Column Grid -->
-        <sk-grid gap="10px">
+        <sk-grid gap="10px" cols="12">
           <sk-col xs="3" sm="4" lg="2" xl="1"></sk-col>
           <sk-col xs="6" sm="4" lg="8" xl="10"></sk-col>
           <sk-col xs="3" sm="4" lg="2" xl="1"></sk-col>
         </sk-grid>
 
         <!-- Template Grid -->
-        <sk-grid gap="10px" tpl="3.5fr 6.5fr">
+        <sk-grid gap="10px" cols="3.5fr 6.5fr">
           <sk-col></sk-col>
           <sk-col></sk-col>
         </sk-grid>
@@ -36,7 +36,7 @@ section
         
     div(v-else)
       h5 12 Column Grid
-      sk-grid.text-center.mgb-md(gap="10px")
+      sk-grid.text-center.mgb-md(gap="10px" cols="12")
         sk-col(xs="3")
           .pd-sm.fg-white.bg-info-500.rad-md 3/12
         sk-col(xs="6")
@@ -45,7 +45,7 @@ section
           .pd-sm.fg-white.bg-info-500.rad-md 3/12
 
       h5 Template Grid
-      sk-grid.text-center.mgb-md(gap="10px" tpl="3.5fr 6.5fr")
+      sk-grid.text-center.mgb-md(gap="10px" cols="3.5fr 6.5fr")
         sk-col
           .pd-sm.fg-white.bg-primary-500.rad-md 3.5fr
         sk-col

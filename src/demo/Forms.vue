@@ -26,13 +26,13 @@ section
         #{markup}
 
     div(v-else)
-      sk-grid.mgb-lg
+      sk-grid.mgb-lg(cols="12")
         sk-col(xs="12" lg="6")
           sk-field(block label="First Name" name="firstname" placeholder="Enter name" v-model="firstname")
           sk-field(block mode="select" label="Country" name="country" v-model="country" :options="countries")
         sk-col(xs="12" lg="6")
           sk-field(block mode="ta" rows="5" label="Message" name="message" v-model="message")
-      sk-grid
+      sk-grid(cols="12")
         sk-col(xs="12" lg="12")
           sk-grid(cols="1" cols-lg="3" gap="20px")
             sk-col

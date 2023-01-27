@@ -30,7 +30,7 @@ section
         #{markup}
 
     div(v-else)
-      sk-grid
+      sk-grid(cols="12")
         sk-col(xs="12" lg="6")
           sk-alert.mgb-md(v-for="v in colors" :key="v" :variant="v" :closable="true") {{ v }}
         sk-col(xs="12" lg="6")

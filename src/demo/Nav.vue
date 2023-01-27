@@ -55,11 +55,11 @@ section
         #{markup}
 
     div(v-else)
-      sk-grid(gap="20px")
-        sk-col(xs="12" lg="3")
+      sk-grid(gap="20px" cols-lg="3fr 9fr")
+        sk-col
           .pd-md.rad-md.bg-mute-xl
             sk-nav(:menu="menu1" vert)
-        sk-col(xs="12" lg="9")
+        sk-col
           .pd-sm.rad-md.bg-mute-xl(style="margin-bottom: 100px")
             sk-nav(:menu="menu2")
 </template>

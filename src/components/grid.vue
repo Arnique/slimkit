@@ -80,35 +80,35 @@
 </script>
 
 <style lang="scss">
-  .grid {
+  .sk-grid {
     display: grid;
     gap: var(--gap);
     grid-template-columns: var(--tpl);
   }
   
   @include bp-up(sm) {
-    .grid {
+    .sk-grid {
     	gap: var(--gap-sm);
       grid-template-columns: var(--tpl-sm);
     }
   }
 
   @include bp-up(md) {
-    .grid {
+    .sk-grid {
     	gap: var(--gap-md);
       grid-template-columns: var(--tpl-md);
     }
   }
 
   @include bp-up(lg) {
-    .grid {
+    .sk-grid {
     	gap: var(--gap-lg);
       grid-template-columns: var(--tpl-lg);
     }
   }
 
   @include bp-up(xl) {
-    .grid {
+    .sk-grid {
     	gap: var(--gap-xl);
       grid-template-columns: var(--tpl-xl);
     }
