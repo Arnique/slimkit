@@ -27,6 +27,12 @@ export function isString(v) {
   return typeof v === 'string'
 }
 
+export function isEmpty(v) {
+  return v === undefined ||
+         v === null ||
+         v.hasOwnProperty('length') && v.length === 0
+}
+
 export function formatError(e) {
   if (isString(e)) return e;
 
@@ -41,28 +47,13 @@ export function pick(obj, keys = []) {
   return v;
 }
 
-export function cascadeArr(arr = []) {
-  const a = [...arr];
+export function cascadeObj(obj, defVal) {
+  const x = { ...obj };
 
-  a.forEach((v, i) => {
-    if (i < a.length && v === null) {
-      a[i] = a[i-1];
-    }
-  })
-
-  return a;
-}
-
-export function cascadeObj(obj = {}) {
-  const x = {...obj};
-  const keys = Object.keys(x);
-
-  keys.forEach((k, i) => {
-    if (i < keys.length && isUndef(x[k])) {
-      const pk = keys[i-1];
-      x[k] = x[pk];
-    }
-  })
+  Object.entries(x).reduce((acm, [key, val]) => {
+    x[key] = isEmpty(val) ? acm : val
+    return x[key]
+  }, defVal)
 
   return x;
 }

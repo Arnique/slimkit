@@ -1,17 +1,16 @@
 <template lang="pug">
-.sk-grid(:style="_cssVars")
+.sk-grid(:style="cssVars")
   slot
 </template>
 
 <script setup>
-  import { computed } from 'vue';
-  import { pick, cascadeObj } from './utils';
+	import { defineProps, computed } from 'vue'
+  import { cascadeObj, isEmpty } from './utils.js'
 
-  const props = defineProps({
-    // cols
+	const props = defineProps({
     cols: {
       type: String,
-      default: '12'
+      default: '1fr'
     },
     colsSm: {
       type: String,
@@ -29,31 +28,9 @@
       type: String,
       default: null
     },
-    // col tpl
-    tpl: {
-      type: String,
-      default: null
-    },
-    tplSm: {
-      type: String,
-      default: null
-    },
-    tplMd: {
-      type: String,
-      default: null
-    },
-    tplLg: {
-      type: String,
-      default: null
-    },
-    tplXl: {
-      type: String,
-      default: null
-    },
-    // gap
     gap: {
       type: String,
-      default: '0 20px'
+      default: '20px'
     },
     gapSm: {
       type: String,
@@ -71,90 +48,69 @@
       type: String,
       default: null
     },
-  });
-
-  const _cssVars = computed(()=> {
-    const vars = cascadeObj({
-      '--t': props.tpl || tplCols() || null,
-      '--t-sm': props.tplSm || tplCols('sm'),
-      '--t-md': props.tplMd || tplCols('md'),
-      '--t-lg': props.tplLg || tplCols('lg'),
-      '--t-xl': props.tplXl || tplCols('xl'),
-      '--g': props.gap,
-      '--g-sm': props.gapSm,
-      '--g-md': props.gapMd,
-      '--g-lg': props.gapLg,
-      '--g-xl': props.gapXl,
-    });
-
-    return vars;
-  });
-
-  const cssVars = computed(()=> {
-    const keys = [
-      '--t',
-      ...props.tplSm ? ['--t-sm'] : [],
-      ...props.tplMd ? ['--t-md'] : [],
-      ...props.tplLg ? ['--t-lg'] : [],
-      ...props.tplXl ? ['--t-xl'] : [],
-      '--g',
-      ...props.gapSm ? ['--g-sm'] : [],
-      ...props.gapMd ? ['--g-md'] : [],
-      ...props.gapLg ? ['--g-lg'] : [],
-      ...props.gapXl ? ['--g-xl'] : [],
-    ]
-
-    return pick(_cssVars.value, keys);
-  });
-
-  const cols = computed(() => {
+  })
+  
+  const cssVars = computed(() => {
     return {
-      def: props.cols,
-      sm: props.colsSm,
-      md: props.colsMd,
-      lg: props.colsLg,
-      xl: props.colsXl,
-    }
-  });
+      ...cascadeObj({
+        '--gap': props.gap,
+        '--gap-sm': props.gapSm,
+        '--gap-md': props.gapMd,
+        '--gap-lg': props.gapLg,
+        '--gap-xl': props.gapXl,
+      }, '0'),
 
-  function tplCols(bp = 'def') {
-    if (!cols.value[bp]) return null;
-    return `repeat(${cols.value[bp]}, 1fr)`;
-  }
+      ...cascadeObj({
+        '--tpl': toTpl(props.cols),
+        '--tpl-sm': toTpl(props.colsSm),
+        '--tpl-md': toTpl(props.colsMd),
+        '--tpl-lg': toTpl(props.colsLg),
+        '--tpl-xl': toTpl(props.colsXl),
+      }, '1fr')
+  	}
+  })
 
-  function cascadeVals(arr = []) {
-    arr.forEach((v, i) => {
-      if (i < arr.length && !v) {
-        arr[i+1] = v;
-      }
-    })
+  function toTpl(v) {
+    if (isEmpty(v)) return null;
+    
+    if (isNaN(v)) return v;
+
+    return `repeat(${v}, 1fr)`;
   }
 </script>
 
 <style lang="scss">
-  .sk-grid {
+  .grid {
     display: grid;
-    gap: var(--g);
-    grid-template-columns: var(--t);
-
-    @include bp-up(sm) {
-      gap: var(--g-sm);
-      grid-template-columns: var(--t-sm);
+    gap: var(--gap);
+    grid-template-columns: var(--tpl);
+  }
+  
+  @include bp-up(sm) {
+    .grid {
+    	gap: var(--gap-sm);
+      grid-template-columns: var(--tpl-sm);
     }
+  }
 
-    @include bp-up(md) {
-      gap: var(--g-md);
-      grid-template-columns: var(--t-md);
+  @include bp-up(md) {
+    .grid {
+    	gap: var(--gap-md);
+      grid-template-columns: var(--tpl-md);
     }
+  }
 
-    @include bp-up(lg) {
-      gap: var(--g-lg);
-      grid-template-columns: var(--t-lg);
+  @include bp-up(lg) {
+    .grid {
+    	gap: var(--gap-lg);
+      grid-template-columns: var(--tpl-lg);
     }
+  }
 
-    @include bp-up(xl) {
-      gap: var(--g-xl);
-      grid-template-columns: var(--t-xl);
+  @include bp-up(xl) {
+    .grid {
+    	gap: var(--gap-xl);
+      grid-template-columns: var(--tpl-xl);
     }
   }
 </style>
